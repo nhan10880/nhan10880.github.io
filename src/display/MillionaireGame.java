@@ -743,11 +743,12 @@ public class MillionaireGame extends javax.swing.JFrame {
     public void random5050a() {
         System.out.println(Answar);
         String rdn = ranndomAnswar();
-        System.out.println("abc"+rdn);
-        String rdn2 = ranndomAnswar();
-        while (rdn == Answar) {
+        System.out.println(rdn.equals(Answar));
+        while (rdn.equals(Answar)) {
+            
             rdn = ranndomAnswar();
         }
+        System.out.println("tc1"+rdn);
         if (rdn == "A") {
             lblAQuestion.setText("");
         } else if (rdn == "B") {
@@ -757,9 +758,12 @@ public class MillionaireGame extends javax.swing.JFrame {
         } else if (rdn == "D") {
             lblDQuestion.setText("");
         }
-        while (rdn2 == Answar && rdn2 == rdn) {
+        String rdn2 = ranndomAnswar();
+        System.out.println(rdn2.equals(Answar));
+        while (rdn2.equals(Answar) || rdn2.equals(rdn)) {
             rdn2 = ranndomAnswar();
         }
+        System.out.println("tc2"+rdn2);
         if (rdn2 == "A") {
             lblAQuestion.setText("");
         } else if (rdn2 == "B") {
@@ -956,6 +960,8 @@ public class MillionaireGame extends javax.swing.JFrame {
         help5050 = true;
         helpAudience = true;
         helpCall = true;
+        lblTrueQuestion.setText("");
+        lblOKTrueQuestion.setText("");
 
         try {
             Answar = PlayGame(level);
